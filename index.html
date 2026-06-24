@@ -24,22 +24,35 @@
                 <select class="search-select">
                     <option>All</option>
                 </select>
-                <input placeholder="Search Amazon"class="search-input">
-                <div class="search-icon">
+                <input placeholder="Search Amazon" class="search-input" id="searchBox">
+                <div class="search-icon" onclick="searchProduct()">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
             </div>
-            <div class="nav-signin border">
-                <p><span>Hello, sign in</span></p>
+            <div class="nav-signin border"
+            onclick="openLogin()">
+                <p><span id="userName">Hello, sign in</span></p>
                 <p class="nav-second">Account & Lists</p>
             </div>
+            <button onclick="logout()"class="logout-btn">
+
+            Logout
+
+            </button>
+            <button onclick="darkMode()"
+            class="dark-btn">
+
+            Dark Mode
+
+            </button>
             <div class="nav-signin border">
                 <p><span>Returns</span></p>
                 <p class="nav-second">& Orders</p>
             </div>
-            <div class="nav-cart border">
+            <div class="nav-cart border"
+            onclick="openCartPage()">
                 <i class="fa-solid fa-cart-shopping"></i>
-                Cart
+                Cart (<span id="count">0</span>)
             </div>
         </div>
         <div class="panel">
@@ -66,62 +79,97 @@
             <p>You are on amazon.com. You can also shop on Amazon India for millions of products with fast local delivery. <a href="https://www.amazon.in">Click here to go to amazon.in</a></p>
         </div>
     </div>
+    <h2 id="notFound" style="display:none; text-align:center;">
+        No Product Found
+    </h2>
 
     <div class="shop-section">
         <div class="box">
             <div class="box-content">
                 <h2>Clothes</h2>
+                <a href="clothes.html">
                 <div class="box-img" style="background-image: url('box1_image.jpg');"></div>
+                </a>
                 <p>See more</p>
+                <button type="button" onclick="addToCart('Clothes', 2000)">Add to Cart</button>
+                <button class="wishlist-btn" onclick="addToWishlist('Clothes')"> ♡ Wishlist </button>
             </div>
         </div>
         <div class="box">
             <div class="box-content">
                 <h2>Health & Presonal Care</h2>
+                <a href="health.html">
                 <div class="box-img" style="background-image: url('box2_image.jpg');"></div>
+                </a>
                 <p>See more</p>
+                <button type="button" onclick="addToCart('Health & Presonal Care', 500)">Add to Cart</button>
+                <button class="wishlist-btn" onclick="addToWishlist('Health & Presonal Care')"> ♡ Wishlist </button>
             </div>
         </div>
         <div class="box">
             <div class="box-content">
                 <h2>Furniture</h2>
+                <a href="furniture.html">
                 <div class="box-img" style="background-image: url('box3_image.jpg');"></div>
+                </a>
                 <p>See more</p>
+                <button type="button" onclick="addToCart('Furniture', 12000)">Add to Cart</button>
+                <button class="wishlist-btn" onclick="addToWishlist('Furniture')"> ♡ Wishlist </button>
             </div>
         </div>
         <div class="box">
             <div class="box-content">
                 <h2>Electronics</h2>
+                <a href="Electronics.html">
                 <div class="box-img" style="background-image: url('box4_image.jpg');"></div>
+                </a>
                 <p>See more</p>
+                <button type="button" onclick="addToCart('Electronics', 50000)">Add to Cart</button>
+                <button class="wishlist-btn" onclick="addToWishlist('Electronics')"> ♡ Wishlist </button>
             </div>
         </div>
         <div class="box">
             <div class="box-content">
                 <h2>Beauty picks</h2>
+                <a href="beauty.html">
                 <div class="box-img" style="background-image: url('box5_image.jpg');"></div>
+                </a>
                 <p>See more</p>
+                <button type="button" onclick="addToCart('Beauty picks', 1200)">Add to Cart</button>
+                <button class="wishlist-btn" onclick="addToWishlist('Beauty picks')"> ♡ Wishlist </button>
             </div>
         </div>
         <div class="box">
             <div class="box-content">
                 <h2>Pet Care</h2>
+                <a href="petcare.html">
                 <div class="box-img" style="background-image: url('box6_image.jpg');"></div>
+                </a>
                 <p>See more</p>
+                <button type="button" onclick="addToCart('Pet Care', 400)">Add to Cart</button>
+                <button class="wishlist-btn" onclick="addToWishlist('Pet Care')"> ♡ Wishlist </button>
             </div>
         </div>
         <div class="box">
             <div class="box-content">
                 <h2>New Arrival in Toys</h2>
+                <a href="toys.html">
                 <div class="box-img" style="background-image: url('box7_image.jpg');"></div>
+                </a>
                 <p>See more</p>
+                <button type="button" onclick="addToCart('New Arrival in Toys', 800)">Add to Cart</button>
+                <button class="wishlist-btn" onclick="addToWishlist('New Arrival in Toys')"> ♡ Wishlist </button>
             </div>
         </div>
         <div class="box">
             <div class="box-content">
                 <h2>Discover Fasion Trends</h2>
+                <a href="fashion.html">
                 <div class="box-img" style="background-image: url('box8_image.jpg');"></div>
+                </a>
                 <p>See more</p>
+                <button type="button" onclick="addToCart('Discover Fasion Trends', 2000)">Add to Cart</button>
+                <button class="wishlist-btn" onclick="addToWishlist('Discover Fasion Trends')"> ♡ Wishlist </button>
             </div>
         </div>
     </div>
@@ -185,5 +233,6 @@
             </div>
         </div>
     </footer>
+<script src="script.js"></script>
 </body>
 </html>
