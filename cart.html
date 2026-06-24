@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Cart</title>
+
+<style>
+
+body{
+
+    font-family:Arial;
+    background:#f3f3f3;
+    padding:30px;
+
+}
+
+.cart-box{
+
+    background:white;
+    padding:20px;
+    border-radius:10px;
+
+}
+
+li{
+
+    margin-top:10px;
+    font-size:20px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="cart-box">
+
+<h1>Your Cart</h1>
+
+<ul id="cartList"></ul>
+
+</div>
+
+<script>
+
+let products =
+JSON.parse(localStorage.getItem("cartProducts"))
+|| [];
+
+let cartList =
+document.getElementById("cartList");
+
+
+    let total = 0;
+
+    products.forEach(function(item,index){
+
+        total += item.price * item.quantity;
+
+        cartList.innerHTML += `
+
+        <div class="cart-item">
+
+            <h3>
+
+            ${item.name} - ₹${item.price}
+
+            </h3>
+
+            <div>
+
+            <button onclick="decreaseQty(${index})">
+            -
+            </button>
+
+            <span>
+
+            ${item.quantity}
+
+            </span>
+
+            <button onclick="increaseQty(${index})">
+            +
+            </button>
+
+            </div>
+
+
+            <button onclick="removeItem(${index})">
+                Remove
+            </button>
+
+        </div>
+
+        `;
+
+    });
+
+    cartList.innerHTML += `
+
+    <h2 style="margin-top:20px;">
+
+    Total = ₹${total}
+
+    </h2>
+
+    <button id="checkout-btn"
+    onclick="checkout()">
+
+    Proceed to Checkout
+
+    </button>
+
+    `;
+
+    function removeItem(index){
+
+        products.splice(index,1);
+
+        localStorage.setItem(
+            "cartProducts",
+            JSON.stringify(products)
+        );
+
+        localStorage.setItem(
+            "cartCount",
+            products.length
+        );
+
+        location.reload();
+
+    }
+    function increaseQty(index){
+
+    products[index].quantity++;
+
+    localStorage.setItem(
+        "cartProducts",
+        JSON.stringify(products)
+    );
+
+    location.reload();
+
+    }
+
+    function decreaseQty(index){
+
+        if(products[index].quantity > 1){
+
+            products[index].quantity--;
+
+        }
+        else{
+
+            products.splice(index,1);
+
+        }
+
+        localStorage.setItem(
+            "cartProducts",
+            JSON.stringify(products)
+        );
+
+        localStorage.setItem(
+            "cartCount",
+            products.length
+        );
+
+        location.reload();
+
+    }
+
+    function checkout(){
+
+    alert("Order Placed Successfully");
+
+}
+
+</script>
+
+</body>
+</html>
